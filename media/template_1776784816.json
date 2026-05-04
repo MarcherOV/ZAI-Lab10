@@ -1,0 +1,17 @@
+{
+    "type": "template",
+    "createdAt": "2026-04-21T15:20:16.942Z",
+    "saveMode": "file",
+    "fields": [
+        {
+            "id": 1776716452358.1494,
+            "name": "Imie",
+            "value": "ABBA"
+        },
+        {
+            "id": 1776716452760.4304,
+            "name": "Nazwisko",
+            "value": "ABBA"
+        }
+    ]
+}

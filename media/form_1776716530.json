@@ -1,0 +1,17 @@
+{
+    "type": "form",
+    "createdAt": "2026-04-20T20:22:10.104Z",
+    "saveMode": "file",
+    "fields": [
+        {
+            "id": 1776716526882.694,
+            "name": "Imie",
+            "value": ""
+        },
+        {
+            "id": 1776716527071.6355,
+            "name": "Nazwisko",
+            "value": ""
+        }
+    ]
+}

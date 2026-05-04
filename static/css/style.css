@@ -1,0 +1,20 @@
+/* style.css */
+body { font-family: sans-serif; margin: 0; background: #f0f0f0; display: flex; flex-direction: column; height: 100vh; }
+header { background: #333; color: #fff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+.msg-box { color: lightgreen; font-weight: bold; }
+
+.container { display: flex; flex: 1; }
+.sidebar { width: 250px; background: #ddd; padding: 10px; border-right: 1px solid #ccc; overflow-y: auto; }
+.main-content { flex: 1; padding: 20px; display: flex; flex-direction: column; }
+
+.mode-selector { margin-bottom: 15px; padding: 10px; background: #fff; border: 1px solid #ccc; }
+.fields-panel { margin-bottom: 15px; }
+.field-btn { padding: 5px 10px; margin-right: 5px; cursor: pointer; background: #e0e0e0; border: 1px solid #999; }
+.field-btn:hover { background: #d0d0d0; }
+
+.workspace { background: #fff; border: 2px dashed #aaa; padding: 20px; flex: 1; overflow-y: auto; }
+.workspace-item { border: 1px solid #eee; padding: 10px; margin-bottom: 5px; background: #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+.workspace-item label { font-weight: bold; }
+.btn-remove { background: #ffcccc; border: none; cursor: pointer; color: red; }
+.btn-save { background: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+.active-mode { background-color: #007bff; color: white; }

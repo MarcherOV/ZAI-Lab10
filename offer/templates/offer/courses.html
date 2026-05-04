@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Szkolenia: {{ category.name }}{% endblock %}
+
+{% block content %}
+    <h2>Szkolenia w kategorii: {{ category.name }}</h2>
+    {% for course in courses %}
+        <div class="workspace-item">
+            <div>
+                <strong>{{ course.title }}</strong> ({{ course.hours }}h) <br>
+                <small>Cena: {{ course.price }} PLN | Numer: {{ course.number }}</small>
+            </div>
+            <a href="{% url 'offer_course' category.name course.id %}" class="field-btn">Szczegóły</a>
+        </div>
+    {% empty %}
+        <p>Brak dostępnych szkoleń w tej kategorii.</p>
+    {% endfor %}
+    <br><a href="{% url 'offer_main' %}">Wróć do kategorii</a>
+{% endblock %}

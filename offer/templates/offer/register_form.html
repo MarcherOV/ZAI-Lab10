@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Rejestracja na szkolenie{% endblock %}
+
+{% block content %}
+    <h2>Formularz Rejestracji</h2>
+    <form method="post" class="workspace" style="border:none;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-save">Wyślij zgłoszenie</button>
+    </form>
+{% endblock %}

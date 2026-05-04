@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Lista problemów{% endblock %}
+
+{% block content %}
+    <h2>Lista zgłoszonych problemów</h2>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Temat</th>
+            <th>Moduł</th>
+            <th>Akcja</th>
+        </tr>
+        {% for issue in issues %}
+        <tr>
+            <td>{{ issue.date_reported|date:"d.m.Y H:i" }}</td>
+            <td>{{ issue.subject }}</td>
+            <td>{{ issue.get_module_display }}</td>
+            <td><a href="{% url 'problem_detail' issue.id %}" class="field-btn">Szczegóły</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Brak zgłoszonych problemów.</td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Generator Formularzy{% endblock %}
+
+{% block content %}
+<div class="container" style="display: flex; gap: 20px;">
+    <aside class="sidebar" style="width: 250px; background: #eee; padding: 15px; border-radius: 8px;">
+        <h3>Zapisane pliki</h3>
+        <button onclick="loadFileList()" class="field-btn">Odśwież listę</button>
+        <ul id="file-list" style="margin-top: 10px;"></ul>
+    </aside>
+
+    <main class="main-content" style="flex: 1;">
+        <div class="mode-selector">
+            <button id="btn-form" onclick="setMode('form')" class="active-mode">Formularz</button>
+            <button id="btn-template" onclick="setMode('template')">Szablon</button>
+            <span id="current-mode-label" style="margin-left: 10px; font-weight: bold;">Tryb: Formularz</span>
+        </div>
+
+        <div class="fields-panel" style="margin: 20px 0;">
+            <h4>Dostępne pola:</h4>
+            <div id="fields-container">Ładowanie pól...</div>
+        </div>
+
+        <div class="save-options" style="margin-bottom: 20px; padding: 10px; background: #fff; border: 1px solid #ccc;">
+            <span>Zapisz do: </span>
+            <label><input type="radio" name="saveDest" value="file" checked onchange="loadFileList()"> Plik JSON</label>
+            <label><input type="radio" name="saveDest" value="db" onchange="loadFileList()"> Baza Danych</label>
+        </div>
+
+        <div class="workspace-actions" style="margin-bottom: 10px;">
+            <button onclick="saveDocument()" class="btn-save">Zapisz</button>
+            <button onclick="clearWorkspace()" class="field-btn">Wyczyść</button>
+        </div>
+
+        <div id="workspace" class="workspace" style="min-height: 300px; border: 2px dashed #aaa; padding: 20px; background: #fff;">
+            <p class="placeholder">Dodaj pola klikając powyżej...</p>
+        </div>
+    </main>
+</div>
+
+<script>
+    const csrftoken = '{{ csrf_token }}';
+</script>
+{% endblock %}

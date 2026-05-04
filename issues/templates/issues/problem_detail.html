@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Szczegóły problemu{% endblock %}
+
+{% block content %}
+    <h2>Temat: {{ issue.subject }}</h2>
+    <p><strong>Zgłoszone przez:</strong> {{ issue.author|default:"Anonim" }} ({{ issue.date_reported|date:"d.m.Y H:i" }})</p>
+    <p><strong>Moduł:</strong> {{ issue.get_module_display }}</p>
+    
+    <div class="workspace-item" style="display:block; margin-top:20px;">
+        <strong>Opis problemu:</strong>
+        <p>{{ issue.description }}</p>
+    </div>
+
+    <br>
+    <a href="{% url 'problem_list' %}" class="field-btn">Wróć do listy</a>
+{% endblock %}

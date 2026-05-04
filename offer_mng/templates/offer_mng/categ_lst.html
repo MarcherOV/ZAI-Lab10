@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Lista kategorii{% endblock %}
+
+{% block content %}
+    <h2>Zarządzanie: Lista kategorii</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Kolejność</th>
+            <th>Publikuj</th>
+        </tr>
+        {% for cat in categories %}
+        <tr>
+            <td>{{ cat.id }}</td>
+            <td>{{ cat.name }}</td>
+            <td>{{ cat.order }}</td>
+            <td>{% if cat.is_published %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="{% url 'panel_main' %}">Wróć do Panelu</a>
+{% endblock %}

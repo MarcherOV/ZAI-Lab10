@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Zgłoś problem{% endblock %}
+
+{% block content %}
+    <h2>Zgłoś problem techniczny (Issues)</h2>
+    <form method="post" enctype="multipart/form-data" class="workspace" style="border:none;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-save">Wyślij zgłoszenie</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}System Szkoleniowy{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Додаткові стилі для таблиць та меню */
+        nav { background: #444; padding: 10px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #eee; }
+        .content-area { padding: 20px; background: white; margin: 20px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Akademia im. Jakuba z Paradyża</h1>
+        <div id="message-panel" class="msg-box"></div>
+    </header>
+    
+    <nav>
+        <a href="{% url 'offer_main' %}">Publiczna Oferta</a>
+        <a href="{% url 'issue_report' %}">Zgłoś Problem</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'panel_main' %}"><b>Panel Zarządzania</b></a>
+            <a href="/admin/">Admin</a>
+        {% else %}
+            <a href="/admin/login/">Zaloguj</a>
+        {% endif %}
+    </nav>
+
+    <div class="container">
+        <div class="content-area">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Panel Zarządzania{% endblock %}
+
+{% block content %}
+    <h2>Panel główny z menu (Zarządzanie ofertą)</h2>
+    <div class="mode-selector">
+        <a href="{% url 'generator' %}">
+            <button class="btn-save" style="background-color: #007bff;">Otwórz Generator Formularzy (Lab 6)</button>
+        </a>
+        <a href="{% url 'categ_lst' %}"><button class="active-mode">Lista kategorii</button></a>
+        <a href="{% url 'course_lst' %}"><button class="active-mode">Lista szkoleń</button></a>
+        <br><br>
+        <a href="{% url 'categ_add' %}"><button class="btn-save">Dodaj kategorię</button></a>
+        <a href="{% url 'course_add' %}"><button class="btn-save">Dodaj szkolenie</button></a>
+    </div>
+{% endblock %}

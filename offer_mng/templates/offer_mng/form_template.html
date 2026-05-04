@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <form method="post" class="workspace" style="border:none;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-save">Zapisz</button>
+    </form>
+    <br><a href="{% url 'panel_main' %}">Anuluj i wróć do Panelu</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Oferta - Kategorie{% endblock %}
+
+{% block content %}
+    <h2>Kategorie Szkoleń</h2>
+    <div class="fields-panel">
+        {% for cat in categories %}
+            <a href="{% url 'offer_category' cat.name %}" class="field-btn" style="display:inline-block; margin:5px; text-decoration:none; font-size:18px; padding:10px;">
+                {{ cat.name }}
+            </a>
+        {% empty %}
+            <p>Brak dostępnych kategorii.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

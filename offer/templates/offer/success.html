@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Sukces{% endblock %}
+
+{% block content %}
+    <h2 style="color: green;">{{ msg }}</h2>
+    <p>Dziękujemy za przesłanie formularza.</p>
+    <a href="{% url 'offer_main' %}" class="field-btn">Wróć do oferty głównej</a>
+{% endblock %}
