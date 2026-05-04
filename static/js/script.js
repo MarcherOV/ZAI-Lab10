@@ -1,4 +1,3 @@
-/* script.js */
 let currentMode = 'form';
 let availableFields = [];
 let workspaceItems = [];
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setMode('form');
 });
 
-// Отримання полів з Django API
 async function fetchFields() {
     try {
         const response = await fetch('/api/get-fields/');
@@ -115,7 +113,6 @@ function clearWorkspace() {
     showMessage('', 'black');
 }
 
-// Збереження через Django API з використанням CSRF-токена
 async function saveDocument() {
     if (workspaceItems.length === 0) {
         showMessage('Błąd: Pusty dokument', 'red');

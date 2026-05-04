@@ -13,7 +13,6 @@ from .serializers import CourseSerializer, RegistrationSerializer, IssueSerializ
 
 class FormTemplateView(APIView):
     def get(self, request):
-        # *Plik JSON z definicją formularza
         file_path = os.path.join(settings.BASE_DIR, 'src', 'media', 'form_1767566536.json')
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -25,7 +24,6 @@ class FormTemplateView(APIView):
 
 class MessageTemplateView(APIView):
     def get(self, request):
-        # *Tabela BD z treścią szablonu -> HTML
         templates = MessageTemplate.objects.all()
         html_content = "".join([f"<div>{t.content_html}</div>" for t in templates])
         return HttpResponse(html_content, content_type="text/html")
@@ -33,7 +31,6 @@ class MessageTemplateView(APIView):
 
 class CategoryListView(APIView):
     def get(self, request):
-        # **Kategorie zapisane na stałe
         hardcoded_categories = [
             {'id': 1, 'name': 'IT'},
             {'id': 2, 'name': 'Zarządzanie'},
@@ -44,7 +41,6 @@ class CategoryListView(APIView):
 
 class CourseListView(APIView):
     def get(self, request):
-        # **Tabela BD, serializowane dane
         courses = Course.objects.all()
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
@@ -52,7 +48,6 @@ class CourseListView(APIView):
 
 class RegistrationListView(APIView):
     def get(self, request):
-        # **Tabela BD, serializowane dane (lista osób)
         regs = Registration.objects.all()
         serializer = RegistrationSerializer(regs, many=True)
         return Response(serializer.data)
@@ -60,7 +55,6 @@ class RegistrationListView(APIView):
 
 class RegistrationCreateView(APIView):
     def post(self, request):
-        # Zapis do Tabeli BD
         serializer = RegistrationSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -70,7 +64,6 @@ class RegistrationCreateView(APIView):
 
 class RegistrationDetailView(APIView):
     def get(self, request, id):
-        # **Tabela BD, serializowane dane (jedna osoba)
         try:
             reg = Registration.objects.get(id=id)
             serializer = RegistrationSerializer(reg)
@@ -81,7 +74,6 @@ class RegistrationDetailView(APIView):
 
 class ProblemReportCreateView(APIView):
     def post(self, request):
-        # zapis -> Tabela BD
         serializer = IssueSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -91,13 +83,11 @@ class ProblemReportCreateView(APIView):
 
 class ProblemListView(APIView):
     def get(self, request):
-        # Tabela BD, serializowane dane (lista)
         issues = Issue.objects.all()
         serializer = IssueSerializer(issues, many=True)
         return Response(serializer.data)
 
 
-# --- Класи для Генератора Форм ---
 
 class FieldListView(APIView):
     def get(self, request):

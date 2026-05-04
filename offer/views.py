@@ -15,7 +15,6 @@ def offer_course(request, kategoria, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request, 'offer/course_detail.html', {'course': course})
 
-# Представлення для Register (можна розмістити у головному файлі проекту або тут)
 def register_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)

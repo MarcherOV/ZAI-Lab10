@@ -10,7 +10,6 @@ def issue_report(request):
             issue = form.save(commit=False)
             if request.user.is_authenticated:
                 issue.author = request.user
-            # Якщо користувач не залогінений, можна призначити дефолтного або зробити поле author необов'язковим
             issue.save()
             return redirect('problem_list')
     else:

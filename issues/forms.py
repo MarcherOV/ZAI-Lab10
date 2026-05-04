@@ -5,4 +5,6 @@ class IssueForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = ['subject', 'description', 'module', 'attachment']
-        # 'date_reported' заповнюється автоматично, 'author' підставляється у view з request.user
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 4}),
+        }
