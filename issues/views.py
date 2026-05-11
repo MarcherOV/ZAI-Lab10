@@ -3,6 +3,8 @@ from .models import Issue
 from .forms import IssueForm
 from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def issue_report(request):
     if request.method == 'POST':
         form = IssueForm(request.POST, request.FILES)

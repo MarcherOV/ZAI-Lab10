@@ -6,7 +6,6 @@
     <title>{% block title %}System Szkoleniowy{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
-        /* Додаткові стилі для таблиць та меню */
         nav { background: #444; padding: 10px; }
         nav a { color: white; margin-right: 15px; text-decoration: none; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -25,10 +24,10 @@
         <a href="{% url 'offer_main' %}">Publiczna Oferta</a>
         <a href="{% url 'issue_report' %}">Zgłoś Problem</a>
         {% if user.is_authenticated %}
-            <a href="{% url 'panel_main' %}"><b>Panel Zarządzania</b></a>
+            <a href="{% url 'panel_main' %}">Panel Zarządzania</a>
             <a href="/admin/">Admin</a>
         {% else %}
-            <a href="/admin/login/">Zaloguj</a>
+            <a href="{% url 'login' %}">Zaloguj</a>
         {% endif %}
     </nav>
 
